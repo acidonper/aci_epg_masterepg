@@ -83,7 +83,7 @@ extends_documentation_fragment: aci
     epg: web_epg
     description: Web Intranet EPG
     bd: prod_bd
-    masterepg: uni/tn-production/ap-intranet/epg-web_epg
+    masterepg: uni/tn-production/ap-intranet/epg-master_epg
     preferred_group: yes
 
 - aci_epg_masterepg:
@@ -98,13 +98,14 @@ extends_documentation_fragment: aci
     priority: unspecified
     intra_epg_isolation: unenforced
     state: present
-    masterepg: "uni/tn-production/ap-ticketing/epg-{{ item.epg }}"
+    masterepg: "uni/tn-production/ap-ticketing/epg-{{ item.master }}"
   with_items:
     - epg: web
       bd: web_bd
+      masterepg: master
     - epg: database
       bd: database_bd
-
+      masterepg: master
 - name: Remove an EPG
   aci_epg_masterepg:
     host: apic
