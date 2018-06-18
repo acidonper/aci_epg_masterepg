@@ -6,6 +6,7 @@ Notes:
   The aci_tenant and aci_ap modules can be used for this.
 - More information about the internal APIC class fv:AEPg from the APIC Management Information Model reference,https://developer.cisco.com/docs/apic-mim-ref/.
 
+```
 Options:
   tenant:
     description:
@@ -65,6 +66,9 @@ Options:
     choices: [ absent, present, query ]
     default: present
 extends_documentation_fragment: aci
+```
+
+## Examples
 
 ```
 - name: Add a new EPG
